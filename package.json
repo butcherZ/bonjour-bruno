@@ -1,0 +1,29 @@
+{
+  "name": "bonjour-bruno",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "yarn --cwd client run start",
+    "server": "nodemon server/index",
+    "start": "concurrently \"yarn run server\" \"yarn run client\""
+  },
+  "repository": "git+https://github.com/butcherZ/bonjour-bruno.git",
+  "keywords": [],
+  "author": "daydreamnation@live.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/butcherZ/bonjour-bruno/issues"
+  },
+  "homepage": "https://github.com/butcherZ/bonjour-bruno#readme",
+  "dependencies": {
+    "axios": "^0.27.1",
+    "concurrently": "^7.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.0",
+    "mongoose": "^6.3.1",
+    "nodemon": "^2.0.15"
+  }
+}
