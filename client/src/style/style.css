@@ -1,0 +1,57 @@
+body {
+  padding: 0 2.5rem;
+}
+
+h1 {
+  padding: 0 2.5rem;
+  font-family: "Major Mono Display", monospace;
+  font-size: 5rem;
+}
+
+h1 span {
+  display: block;
+}
+main {
+  margin: 2 0rem;
+}
+p {
+  font-family: "Roboto Mono", monospace;
+}
+
+.gallery {
+  display: flex;
+  margin: 2rem 0;
+  height: 30rem;
+  width: auto;
+  object-fit: cover;
+}
+
+.ghost {
+  color: #000000;
+  font-family: "Roboto Mono", monospace;
+  background: #fff;
+  border: 1px solid #000000;
+  font-size: 13px;
+  padding: 7px 12px;
+  font-weight: normal;
+  margin: 6px 0;
+  margin-right: 12px;
+  display: inline-block;
+  text-decoration: none;
+  min-width: 120px;
+}
+
+.ghost:hover,
+.ghost:active {
+  color: #fff;
+  background: #000000;
+}
+
+footer {
+  display: block;
+  text-align: center;
+}
+
+footer p {
+  font-size: 10px;
+}
