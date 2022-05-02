@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const job = require("./schedule");
@@ -15,7 +16,7 @@ app.use(
   })
 );
 app.use(bodyParser.json());
-
+app.use(express.static(path.join(__dirname, "../client/build")));
 const PORT = process.env.PORT || 3001;
 
 mongoose.connect(process.env.DB_URI, {

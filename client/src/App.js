@@ -10,15 +10,20 @@ function App() {
   const [isFetching, setIsFetching] = useState(true);
 
   const fetchData = useCallback(async () => {
-    const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_BASE_URL}/get`,
-      {
-        method: "GET",
-      }
-    );
-    const responseData = await response.json();
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_BASE_URL}/get`,
+        {
+          method: "GET",
+        }
+      );
+      const responseData = await response.json();
+      setData(responseData);
+    } catch (error) {
+      console.error(error);
+    }
+
     setIsFetching(false);
-    setData(responseData);
   }, []);
 
   const sendRequest = useCallback(async () => {
@@ -26,22 +31,22 @@ function App() {
     // update state
     setIsSending(true);
     // send the actual request
-    const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_BASE_URL}/post`,
-      {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    );
-
-    response.ok
-      ? toast("ok, SAD, this picture has been removed")
-      : toast.error(response.error);
-
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_BASE_URL}/post`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+      toast("ok, SAD, this picture has been removed");
+    } catch (error) {
+      toast.error(error);
+    }
     // once the request is sent, update state again
     setIsSending(false);
   }, [isSending, data]);
